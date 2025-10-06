@@ -1,12 +1,11 @@
 const title = document.getElementById('title');
+const button = document.getElementById('pulseBtn');
 
-title.addEventListener('click', () => {
-  title.style.animation = 'none';
+button.addEventListener('click', () => {
+  title.style.transform = 'scale(1.3) rotate(3deg)';
   title.style.color = '#ff4081';
-  title.style.transform = 'scale(1.2) rotate(5deg)';
   setTimeout(() => {
-    title.style.animation = 'blink 1.5s infinite';
-    title.style.color = '#ffffff';
     title.style.transform = 'scale(1) rotate(0deg)';
+    title.style.color = '#ffffff';
   }, 1000);
 });
