@@ -1,36 +1,50 @@
-body {
+/* Reset básico */
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(-45deg, #1e1e2f, #2f2f4f, #1e1e2f);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.container {
+body {
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background: #0f0f1f;
+  color: #fff;
+}
+
+/* Fondo animado */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #00ffe0 0%, #0f0f1f 70%);
+  animation: pulse 10s infinite alternate;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  100% {
+    transform: scale(1.2);
+    filter: blur(10px);
+  }
+}
+
+/* Contenido principal */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   text-align: center;
   animation: fadeIn 2s ease-out forwards;
   opacity: 0;
-}
-
-h1 {
-  font-size: 4rem;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: blink 1.5s infinite;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-h1:hover {
-  transform: scale(1.1) rotate(-2deg);
-  color: #00ffe0;
 }
 
 @keyframes fadeIn {
@@ -39,23 +53,53 @@ h1:hover {
   }
 }
 
-@keyframes blink {
+h1 {
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: flicker 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+@keyframes flicker {
   0%, 100% {
     opacity: 1;
   }
   50% {
-    opacity: 0.6;
+    opacity: 0.7;
   }
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.subtitle {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #aaa;
+}
+
+/* Botón interactivo */
+button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  background: #00ffe0;
+  color: #0f0f1f;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: #00bfa0;
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
 }
